@@ -16,4 +16,9 @@ public class PassengerService {
         );
         return myPassengers;
     }
+
+    public Passenger getPassenger(String passengerID){
+        Passenger p = new Passenger("Mr", "Robb",2472872342L, 3534324L, 25);
+        return p;
+    }
 }
