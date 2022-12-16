@@ -1,11 +1,11 @@
 package ie.atu.Passenger_sequel;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,6 +15,15 @@ public class Passenger {
     private long id;
     private long phone_no;
     private int age;
+
+    public Passenger(String title, String name, long id, long phone_no, int age) {
+        set_title(title);
+        set_name(name);
+        set_id(id);
+        set_no(phone_no);
+        set_age(age);
+
+    }
 
     private void set_age(int age) {
         //Passenger must be 16 years or older
