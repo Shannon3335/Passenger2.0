@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Build with Maven
+      run: mvn -B clean test
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -33,19 +35,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: shannon3335
-          password: dckr_pat_0yZmDhFcjv1UCxgOzThvwE4z_Lw
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
           push: true
           tags: shannon3335/passenger2_postgres:latest
       - name: Build with Maven
