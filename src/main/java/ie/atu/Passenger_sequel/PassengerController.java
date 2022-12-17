@@ -31,9 +31,4 @@ public class PassengerController {
         return myservice.getPassenger(passengerID);
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(PassengerController.class, args);
-    }
-
-
 }
