@@ -35,6 +35,7 @@ jobs:
           fail-on-error: true
 
   push_to_registry:
+    needs: [build]
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
