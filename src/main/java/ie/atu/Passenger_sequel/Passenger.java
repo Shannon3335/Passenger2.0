@@ -1,20 +1,31 @@
 package ie.atu.Passenger_sequel;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import javax.persistence.*;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table
+
 public class Passenger {
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "count", nullable = false)
+    private Long count;
     private String title;
     private String name;
     private long id;
     private long phone_no;
     private int age;
+
 
     public Passenger(String title, String name, long id, long phone_no, int age) {
         set_title(title);
