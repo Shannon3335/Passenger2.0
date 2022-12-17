@@ -26,12 +26,6 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Build with Maven
-        run: mvn -B clean test
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -46,5 +40,7 @@ jobs:
         with:
           push: true
           tags: shannon3335/passenger2_postgres:latest
+      - name: Build with Maven
+        run: mvn test
 
 
