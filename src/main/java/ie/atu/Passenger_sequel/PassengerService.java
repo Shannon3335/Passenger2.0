@@ -1,24 +1,27 @@
 package ie.atu.Passenger_sequel;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@AllArgsConstructor
 @Service
 public class PassengerService {
 
+    private final PassengerRepo passengerRepo;
+
     public List<Passenger> getPassengers()
     {
-        List<Passenger> myPassengers = List.of(
-                new Passenger("Mr", "Robb",2472872342L, 3534324L, 25),
-                new Passenger("Mr", "Ross",2123234343L, 32133423L, 25),
-                new Passenger("Mr", "Rick",53453242323L, 35442346L, 25)
-        );
-        return myPassengers;
+        return passengerRepo.findAll();
     }
 
     public Passenger getPassenger(String passengerID){
         Passenger p = new Passenger("Mr", "Robb",2472872342L, 3534324L, 25);
         return p;
+    }
+
+    public void savePassenger(Passenger passenger){
+        passengerRepo.save(passenger);
+
     }
 }
