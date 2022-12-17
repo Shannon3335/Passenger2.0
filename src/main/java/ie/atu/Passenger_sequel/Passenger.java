@@ -33,7 +33,6 @@ public class Passenger {
         set_id(id);
         set_no(phone_no);
         set_age(age);
-
     }
 
     private void set_age(int age) {
