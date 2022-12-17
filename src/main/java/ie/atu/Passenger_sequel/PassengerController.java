@@ -45,4 +45,10 @@ public class PassengerController {
     {
         myservice.deletePassenger(count);
     }
+
+    @GetMapping("/age")
+    public List<Passenger> getPassengersByAge(@RequestParam(name = "age_start") int age1, @RequestParam(name = "age_end") int age2)
+    {
+        return myservice.findPassengersByAgeRange(age1, age2);
+    }
 }
