@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/data
+
+  application_container:
+    image: passenger2_postgres
+    container_name: passenger_app
+    build:
+      context: .
+    volumes:
+      - /data/application_container
+    environment:
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db
+
+volumes:
+  data: {}
+
+networks:
+  default:
+    name: db_network
