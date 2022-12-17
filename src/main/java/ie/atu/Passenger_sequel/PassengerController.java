@@ -33,4 +33,10 @@ public class PassengerController {
     {
         myservice.savePassenger(passenger);
     }
+
+    @GetMapping("/name/{name}")
+    public Passenger getPassengerName(@PathVariable("name")String name)
+    {
+        return myservice.findPassengerbyName(name);
+    }
 }
