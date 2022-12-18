@@ -24,8 +24,8 @@ public class PassengerController {
     }
 
     @GetMapping("/{passengerID}")
-    public Passenger getPassenger(@PathVariable String passengerID){
-        return myservice.getPassenger(passengerID);
+    public Passenger getPassenger(@PathVariable Long passengerID){
+        return myservice.findPassengerById(passengerID);
     }
 
     @PostMapping

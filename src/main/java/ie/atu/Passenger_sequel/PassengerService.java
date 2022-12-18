@@ -15,9 +15,8 @@ public class PassengerService {
         return passengerRepo.findAll();
     }
 
-    public Passenger getPassenger(String passengerID){
-        Passenger p = new Passenger("Mr", "Robb",2472872342L, 3534324L, 25);
-        return p;
+    public Passenger findPassengerById(Long passengerID){;
+        return passengerRepo.findPassengerById(passengerID);
     }
 
     public void savePassenger(Passenger passenger){
