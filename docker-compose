@@ -15,7 +15,7 @@ services:
       - "//%cd%:/var/lib/postgresql/data"
 
   application_container:
-    image: passenger2_postgres
+    image: shannon3335/passenger2_postgres:latest
     container_name: passenger_app
     build:
       context: .
